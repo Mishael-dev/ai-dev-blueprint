@@ -15,7 +15,7 @@ This section shows how the `/docs` folder should be organized for the project:
   roadmap.md           # Feature order, goals, and status tracking
   instructions.md      # AI instructions and workflow rules
   guides/
-    doc-standards.md   # Documentation guide, skeletons, and quality criteria
+    documentation-guide.md   # Documentation guide, skeletons, and quality criteria
 ```
 
 * All core project documents live at the root of `/docs`.

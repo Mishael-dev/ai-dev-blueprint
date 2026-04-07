@@ -12,8 +12,8 @@ This repository is designed to support an **AI-assisted development workflow**. 
    - `architecture.md`
    - `roadmap.md`
    - `instructions.md`
-   - `guides/doc-standards.md`
-3. If you are using AI to write or update documentation, always follow `docs/guides/doc-standards.md`.
+   - `guides/documentation-guide.md`
+3. If you are using AI to write or update documentation, always follow `docs/guides/documentation-guide.md`.
 4. Fill in the docs before starting implementation.
 
 ---
@@ -26,7 +26,7 @@ This repository is designed to support an **AI-assisted development workflow**. 
 | `architecture.md` | Explains how the system is structured. |
 | `roadmap.md` | Lists the features in order, with their goal and status. |
 | `instructions.md` | Tells the AI how to behave during the workflow. *(You can modify this file to adjust how the agent behaves.)* |
-| `guides/doc-standards.md` | Defines how documentation should be structured and reviewed. |
+| `guides/documentation-guide.md` | Defines how documentation should be structured and reviewed. |
 
 Feature-specific documentation is created under:
 
@@ -303,7 +303,7 @@ Bad: Adding specs, technical notes, brain dumps.
 Use this prompt after creating the `/Doc` folder in your project root.
 
 ```text
-Read all files in `/Doc`, including `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/doc-standards.md`.
+Read all files in `/Doc`, including `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/documentation-guide.md`.
 
 Do NOT create any files yet.
 
@@ -317,7 +317,7 @@ Begin the feature design phase in chat only:
 
 Do NOT draft the feature spec until we have discussed it.
 Do NOT create or modify any files during this phase.
-When I approve the discussion, draft the full feature spec in chat only, using the structure from `guides/doc-standards.md`:
+When I approve the discussion, draft the full feature spec in chat only, using the structure from `guides/documentation-guide.md`:
 - Feature Spec
 - Technical Plan
 - Task Breakdown
@@ -332,7 +332,7 @@ Follow `instructions.md` exactly and do not skip any approval steps.
 
 The AI should always:
 
-- Read `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/doc-standards.md`.
+- Read `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/documentation-guide.md`.
 - Discuss each feature with you first.
 - Wait for approval before creating or modifying any files.
 - Follow the document standards exactly.
