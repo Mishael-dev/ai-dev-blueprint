@@ -300,7 +300,7 @@ Bad: Adding specs, technical notes, brain dumps.
 
 ## 🏁 Implementation Starter Prompt
 
-Use this prompt after creating the `/docs` folder in your project root.
+Use this prompt after creating the `/Doc` folder in your project root.
 
 ```text
 Read all files in `/docs`, including `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/doc-standards.md`.
