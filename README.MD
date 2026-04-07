@@ -303,7 +303,7 @@ Bad: Adding specs, technical notes, brain dumps.
 Use this prompt after creating the `/Doc` folder in your project root.
 
 ```text
-Read all files in `/docs`, including `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/doc-standards.md`.
+Read all files in `/Doc`, including `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/doc-standards.md`.
 
 Do NOT create any files yet.
 
