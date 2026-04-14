@@ -6,21 +6,30 @@ This guide defines the structure, skeleton, and quality criteria for the core do
 
 ## Documentation Folder Structure
 
-This section shows how the `/docs` folder should be organized for the project:
-
 ```
-/docs
+/ai
   overview.md          # High-level project description and purpose
   architecture.md      # System architecture and design decisions
   roadmap.md           # Feature order, goals, and status tracking
   instructions.md      # AI instructions and workflow rules
   guides/
-    documentation-guide.md   # Documentation guide, skeletons, and quality criteria
+    doc-standards.md   # This guide
+    feature-standards.md
+  dependencies/        # Controlled dependency knowledge
+    <dependency-name>/
+      docs.md          # Official docs for that dependency
+  features/            # Feature-specific documentation
+    <feature-name>/
+      spec.md
+      tech.md
+      tasks.md
 ```
 
-* All core project documents live at the root of `/docs`.
-* The `guides/` subfolder contains reference guides and templates for documentation standards.
-* Feature-specific documents
+**Rules:**
+- All core project documents live at `/ai/` root
+- `guides/` contains reference guides and templates
+- `dependencies/` stores fetched docs for libraries/dependencies used
+- `features/` stores feature-specific documentation
 
 
 ## 1. `overview.md`
@@ -150,119 +159,6 @@ Bad: Adding specs, technical notes, brain dumps.
 
 ---
 
-## 4. Feature Docs (`/features/<feature>/`)
-
-### A. `spec.md`
-
-### Purpose
-
-Define **what the feature does**.
-
-### Skeleton
-
-```md
-# Feature: <Name>
-
-## Purpose
-What this feature achieves
-
-## User Flow
-Step-by-step interaction
-
-## Rules
-- Validation rules
-- Constraints
-- Edge cases
-
-## Acceptance Criteria
-- [ ] Condition 1
-- [ ] Condition 2
-- [ ] Condition 3
-```
-
-### Quality Criteria
-
-* Clear flows
-* Covers edge cases
-* Testable criteria
-
-Bad: vague descriptions, missing rules, no acceptance criteria.
-
----
-
-### B. `tech.md`
-
-### Purpose
-
-Define **how the feature will be built**.
-
-### Skeleton
-
-```md
-# Technical Plan
-
-## Components
-- Service names
-- Modules
-
-## API
-- Endpoint: POST /login
-- Endpoint: POST /signup
-
-## Data Model
-User {
-  id
-  email
-  passwordHash
-}
-
-## Flow
-Short technical flow:
-Request → Validation → Service → DB → Response
-
-## Notes
-- Use JWT
-- Hash passwords
-```
-
-### Quality Criteria
-
-* Concrete (endpoints, models)
-* Matches architecture
-* No fluff
-
-Bad: too abstract, missing pieces, contradicts architecture.
-
----
-
-### C. `tasks.md`
-
-### Purpose
-
-Drive execution.
-
-### Skeleton
-
-```md
-# Tasks
-
-- [ ] Create User model
-- [ ] Implement signup endpoint
-- [ ] Add validation
-- [ ] Implement login
-- [ ] Write tests
-```
-
-### Quality Criteria
-
-* Small, actionable tasks
-* Logical order
-* Each task testable
-
-Bad: tasks too big, vague, or missing steps.
-
----
-
 ## Global Rules
 
 1. **No duplication**: Each piece of info lives in ONE place.
@@ -276,5 +172,3 @@ Bad: tasks too big, vague, or missing steps.
    * spec → feature behavior
    * tech → implementation
    * tasks → execution
-
-If these rules are followed, AI output will be consistent, iterations faster, and implementations accurate.
