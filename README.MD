@@ -1,20 +1,18 @@
 # 🚀 Project README
 
-This repository is designed to support an **AI-assisted development workflow**. The documentation in `/docs` helps you define the project clearly, keep the AI aligned, and reduce confusion during implementation.
+This repository is designed to support an **AI-assisted development workflow**. The documentation in `/ai` helps you define the project clearly, keep the AI aligned, and reduce confusion during implementation.
 
 ---
 
 ## 📝 Setup Instructions
 
-1. Copy the entire `/docs` folder into the root of your project.
-2. Ensure the folder contains:
+1. Copy the entire `/ai` folder into the root of your project.
+2. Fill in the core documents before starting implementation:
    - `overview.md`
    - `architecture.md`
    - `roadmap.md`
-   - `instructions.md`
-   - `guides/documentation-guide.md`
-3. If you are using AI to write or update documentation, always follow `docs/guides/documentation-guide.md`.
-4. Fill in the docs before starting implementation.
+3. `instructions.md` is already configured - modify it to adjust how the AI agent behaves.
+4. When using AI to write documentation, always follow `ai/guides/doc-standards.md`.
 
 ---
 
@@ -24,143 +22,39 @@ This repository is designed to support an **AI-assisted development workflow**. 
 |---|---|
 | `overview.md` | Explains what the project is and why it exists. |
 | `architecture.md` | Explains how the system is structured. |
-| `roadmap.md` | Lists the features in order, with their goal and status. |
-| `instructions.md` | Tells the AI how to behave during the workflow. *(You can modify this file to adjust how the agent behaves.)* |
-| `guides/documentation-guide.md` | Defines how documentation should be structured and reviewed. |
+| `roadmap.md` | Lists the features in order, with their goal and completion status. |
+| `instructions.md` | Tells the AI how to behave during the workflow. |
+| `guides/doc-standards.md` | Defines standards for all documentation. |
+| `guides/feature-standards.md` | Defines standards for feature-specific docs. |
 
-Feature-specific documentation is created under:
+### Folder Structure
 
-```text
-/features/<feature-name>/
-  spec.md
-  tech.md
-  tasks.md
+```
+/ai
+  overview.md          # High-level project description
+  architecture.md      # System architecture and design decisions
+  roadmap.md           # Feature order, goals, and status tracking
+  instructions.md      # AI instructions and workflow rules
+  guides/
+    doc-standards.md   # Documentation standards
+    feature-standards.md
+  dependencies/        # Controlled dependency knowledge
+    <dependency-name>/
+      docs.md          # Fetched official docs for that dependency
+  features/            # Feature-specific documentation
+    <feature-name>/
+      spec.md          # What the feature does
+      tech.md          # How the feature will be built
+      tasks.md         # Task breakdown for execution
 ```
 
 ---
 
-## 📄 Document Skeletons Reference
+## 🏁 Getting Started
 
-Before drafting any core document, use the following guidelines exactly. Draft **one document at a time** and only after discussion and approval.
+### Phase 1: Define the Project
 
----
-
-### 1. `overview.md`
-
-**Purpose:** Define *what the system is* and *why it exists*.
-
-**Skeleton:**
-
-```md
-# Overview
-
-## Product
-Short description of the system.
-
-## Target Users
-Who this is for.
-
-## Problem
-What problem it solves.
-
-## Core Features
-- Feature 1 (1 line)
-- Feature 2
-- Feature 3
-
-## Constraints (Optional)
-- Tech constraints
-- Business rules
-```
-
-**Quality Criteria:**
-- Clear in under 30 seconds
-- No technical noise
-- No implementation details
-
-> ❌ Bad: Long explanations, mixing in architecture, deep feature flows.
-
----
-
-### 2. `architecture.md`
-
-**Purpose:** Define *how the system is structured* to guide the AI.
-
-**Skeleton:**
-
-```md
-# Architecture
-
-## Stack
-- Frontend:
-- Backend:
-- Database:
-
-## System Structure
-Describe main parts:
-- API server
-- Client
-- Database
-
-## Data Flow
-Simple description:
-User → Frontend → API → Database → Response
-
-## Core Entities
-- User
-- Payment
-- etc.
-
-## Key Decisions
-- Auth method (JWT, sessions, etc.)
-- API style (REST, GraphQL)
-- State management approach
-
-## Constraints
-- Must use X
-- Avoid Y
-```
-
-**Quality Criteria:**
-- High-level, not code-level
-- Defines patterns clearly
-- Leaves little room for interpretation
-
-> ❌ Bad: Too vague, too detailed, missing key decisions.
-
----
-
-### 3. `roadmap.md`
-
-**Purpose:** Control **order + status + scope** of features.
-
-**Skeleton:**
-
-```md
-# Roadmap
-
-## 1. Auth
-Status: pending
-Goal: User signup and login
-
-## 2. Payments
-Status: pending
-Goal: Handle transactions
-
-## 3. Dashboard
-Status: pending
-Goal: Display user data
-```
-
-**Status Options:** `pending` · `in development` · `completed`
-
-> ❌ Bad: Adding specs, technical notes, brain dumps.
-
----
-
-## 🛠 Project Starter Prompt
-
-Use this prompt when starting a new project to create `overview.md`, `architecture.md`, and `roadmap.md`.
+Use this prompt to create `overview.md`, `architecture.md`, and `roadmap.md`:
 
 ```text
 I am working on a new project. We will brainstorm the project first, and at the end you will help me create the core project documentation.
@@ -177,137 +71,24 @@ Your tasks:
    - architecture.md
    - roadmap.md
 3. Do NOT create any files yet. Wait for my approval before writing to the filesystem.
-4. Keep the documents clear, concise, and follow the document skeletons below strictly.
+4. Keep the documents clear, concise, and follow the document skeletons in ai/guides/doc-standards.md
 5. Confirm understanding with me before drafting any document.
 
 Start by asking me the first clarifying question needed to fully understand the project.
-
----
-
-DOCUMENT SKELETONS REFERENCE
-
-Before drafting any core document, use the following guidelines exactly. Draft one document at a time and only after discussion and approval.
-
----
-
-1. overview.md
-
-Purpose: Define what the system is and why it exists.
-
-Skeleton:
-
-  Overview
-
-  Product
-  Short description of the system.
-
-  Target Users
-  Who this is for.
-
-  Problem
-  What problem it solves.
-
-  Core Features
-  - Feature 1 (1 line)
-  - Feature 2
-  - Feature 3
-
-  Constraints (Optional)
-  - Tech constraints
-  - Business rules
-
-Quality Criteria:
-- Clear in under 30 seconds
-- No technical noise
-- No implementation details
-
-Bad: Long explanations, mixing in architecture, deep feature flows.
-
----
-
-2. architecture.md
-
-Purpose: Define how the system is structured to guide the AI.
-
-Skeleton:
-
-  Architecture
-
-  Stack
-  - Frontend:
-  - Backend:
-  - Database:
-
-  System Structure
-  Describe main parts:
-  - API server
-  - Client
-  - Database
-
-  Data Flow
-  Simple description:
-  User -> Frontend -> API -> Database -> Response
-
-  Core Entities
-  - User
-  - Payment
-  - etc.
-
-  Key Decisions
-  - Auth method (JWT, sessions, etc.)
-  - API style (REST, GraphQL)
-  - State management approach
-
-  Constraints
-  - Must use X
-  - Avoid Y
-
-Quality Criteria:
-- High-level, not code-level
-- Defines patterns clearly
-- Leaves little room for interpretation
-
-Bad: Too vague, too detailed, missing key decisions.
-
----
-
-3. roadmap.md
-
-Purpose: Control order, status, and scope of features.
-
-Skeleton:
-
-  Roadmap
-
-  1. Auth
-  Status: pending
-  Goal: User signup and login
-
-  2. Payments
-  Status: pending
-  Goal: Handle transactions
-
-  3. Dashboard
-  Status: pending
-  Goal: Display user data
-
-Status options: pending | in development | completed
-
-Bad: Adding specs, technical notes, brain dumps.
 ```
 
 ---
 
-## 🏁 Implementation Starter Prompt
+### Phase 2: Implement Features
 
-Use this prompt after creating the `/Doc` folder in your project root.
+Use this prompt after filling in the core documents:
 
 ```text
-Read all files in `/Doc`, including `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/documentation-guide.md`.
+Read all files in `/ai`, including overview.md, architecture.md, roadmap.md, instructions.md, and guides/doc-standards.md.
 
 Do NOT create any files yet.
 
-Identify the next feature from `roadmap.md`.
+Identify the next feature from roadmap.md.
 Begin the feature design phase in chat only:
 - Discuss the feature with me
 - Clarify the purpose
@@ -317,13 +98,13 @@ Begin the feature design phase in chat only:
 
 Do NOT draft the feature spec until we have discussed it.
 Do NOT create or modify any files during this phase.
-When I approve the discussion, draft the full feature spec in chat only, using the structure from `guides/documentation-guide.md`:
+When I approve the discussion, draft the full feature spec in chat only, using the structure from ai/guides/feature-standards.md:
 - Feature Spec
 - Technical Plan
 - Task Breakdown
 
 Wait for my explicit approval before writing anything to the filesystem.
-Follow `instructions.md` exactly and do not skip any approval steps.
+Follow ai/instructions.md exactly and do not skip any approval steps.
 ```
 
 ---
@@ -332,7 +113,17 @@ Follow `instructions.md` exactly and do not skip any approval steps.
 
 The AI should always:
 
-- Read `overview.md`, `architecture.md`, `roadmap.md`, `instructions.md`, and `guides/documentation-guide.md`.
-- Discuss each feature with you first.
-- Wait for approval before creating or modifying any files.
-- Follow the document standards exactly.
+1. Read all files in `/ai` before starting work
+2. Follow `ai/instructions.md` for workflow rules
+3. Discuss each feature before implementing
+4. Wait for approval before creating or modifying files
+5. Use `ai/guides/doc-standards.md` and `ai/guides/feature-standards.md` for documentation
+6. Fetch and save dependency docs to `ai/dependencies/<name>/docs.md` before using new libraries
+
+---
+
+## 📋 Document Quick Reference
+
+For full skeletons and quality criteria, see:
+- Core docs (`overview.md`, `architecture.md`, `roadmap.md`) → `ai/guides/doc-standards.md`
+- Feature docs (`spec.md`, `tech.md`, `tasks.md`) → `ai/guides/feature-standards.md`
